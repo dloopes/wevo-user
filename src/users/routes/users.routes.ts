@@ -5,14 +5,12 @@ import { ListUsersController } from "../useCases/listUsers/ListUsersController";
 
 const usersRoutes = Router();
 
-const usersRepository = new UsersRepository();
-
 const createUserController = new CreateUserController();
+
+const listUsersController = new ListUsersController();
 
 usersRoutes.post("/", createUserController.handle);
 
-usersRoutes.get("/", (request, response) => {
-    return listUsersController.handle(request, response);
-});
+usersRoutes.get("/", listUsersController.handle);
 
 export { usersRoutes };

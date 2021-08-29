@@ -1,10 +1,11 @@
 { 
+    "name":"default",
     "type":"postgres",
     "port":5432,
     "host":"localhost",
     "username":"docker",
-    "password":"123",
-    "database":"wevodb",
+    "password":"123456",
+    "database":"database_wevo",
     "migrations": ["./src/users/database/*.ts"],
     "cli": {
         "migrationsDir": "./src/users/database/migrations"

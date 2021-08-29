@@ -1,33 +1,32 @@
-version: "3.7"
+version: "2.8"
 
 services:
-  database:
+  database_wevo:
     image: postgres
-    container_name: wevodb
+    container_name: database_wevo
     restart: always
     ports: 
       - 5432:5432
     environment: 
       - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=123
-      - POSTGRES_DB=wevodb
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=database_wevo
     volumes:
       - pgdata:/data/postgres 
    
   app:
     build: .
-    container_name: wevo
+    container_name: wevo_app
     restart: always
     ports: 
       - 3333:3333
-      - 9229:9229 
     volumes: 
       - .:/usr/app
     links: 
-      - database
+      - database_wevo
     depends_on:
-      - database
-
+      - database_wevo
+    
 volumes:
   pgdata:
     driver: local

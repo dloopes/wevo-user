@@ -4,10 +4,11 @@ interface IOptions {
   host: string;
 }
 
-getConnectionOptions().then(options => {
+ getConnectionOptions().then(options => {
   const newOptions = options as IOptions;
-  newOptions.host = 'database'; 
+  newOptions.host = 'database_wevo'; 
   createConnection({
-    ...options,
+    ...options,  name:"default"
   });
 });
+

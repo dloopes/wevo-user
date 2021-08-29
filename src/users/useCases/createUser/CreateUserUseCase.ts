@@ -15,7 +15,7 @@ interface IRequest {
 class CreateUserUseCase {
     constructor(
 
-        @inject("UsersRepository")
+        @inject("UsersRepository")  
         public usersRepository: IUsersRepository){}
 
    async execute({name, cpf, email, telefone, sexo, datanascimento}: IRequest): Promise<void> {

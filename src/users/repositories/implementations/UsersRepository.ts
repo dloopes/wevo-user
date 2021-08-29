@@ -8,7 +8,6 @@ class UsersRepository implements IUsersRepository {
     
     constructor(){
         this.repository = getRepository(User);
- 
     }
 
     async create({ name, cpf, email, telefone, sexo, datanascimento} : ICreateUserDTO): Promise<void> { 
